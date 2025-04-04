@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"emeraldwalk.runonsave": {
+			"commands": [
+				{
+					"match": ".lua",
+					"cmd": "powershell -ExecutionPolicy Bypass -File ./scripts/build.ps1 --% \"${workspaceFolder}\""
+				}
+			]
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Run PICO-8 Cartridge",
+				"type": "shell",
+				"command": "powershell -ExecutionPolicy Bypass -File ./scripts/run.ps1 --% ${workspaceFolderBasename}",
+				"group": "build",
+				"problemMatcher": []
+			}
+		]
+	}
+}
