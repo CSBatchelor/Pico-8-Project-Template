@@ -12,7 +12,7 @@ if (-Not $luaFiles) {
     exit
 }
 
-$result = $luaFiles | Get-Content | Out-String
+$result = $luaFiles | Get-Content | Out-String | ForEach-Object { $_ -replace '(?m)^.*#include.*$', '' }
 
 $p8Path = "build/$projectName.p8"
 
